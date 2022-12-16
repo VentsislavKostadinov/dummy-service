@@ -1,0 +1,44 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #F6F6F6;
+    margin: 15% auto;
+    width: 50%;
+}
+
+.card {
+    width: 450px;
+    margin: 5px;
+    text-align: center;
+    background-color: white;
+    text-align: left;
+}
+
+.container {
+    padding: 0.5rem;
+    margin-top: -1rem;
+}
+
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.footer {
+    text-align: start;
+    margin-left: 0.5rem;
+    color: #A0A0A0;
+}
+
+.pipe {
+    display: inline-block;
+    width: 0;
+    height: 0.8em;
+    border-left: 2px solid #8AAEBF;
+}
+.entertainment {
+    margin-left: 0.5rem;
+}
