@@ -2,10 +2,12 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "./Articles.css";
 import LoadingSpinner from "./LoadingSpinner";
+import ErrorHandling from "./ErrorHandling";
 
 const Articles = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
         retrieveData();
@@ -24,36 +26,40 @@ const Articles = () => {
                 return response;
             })
             .catch(error => {
-                console.log(error)
+                setErrorMessage(error.message);
             })
     }
 
     return (
         <div>
             {
-                loading ? (
+                errorMessage !== "" && data.length === 0 && <ErrorHandling message={errorMessage} />
+            }
+
+            {
+                loading && errorMessage === "" ? (
                     <LoadingSpinner />
                 ) : (
-                        <div className="wrapper">
-                            {
-                                data?.map((element, index) => {
-                                    const {Image, Title, Excerpt, Category} = element;
-                                    return (
-                                        <div key={index} className="card">
-                                            <img src={Image} alt="article" className="img-fluid" />
-                                            <div className="container">
-                                                <h4>{Title}</h4>
-                                                <p>{Excerpt}</p>
-                                                <div className="footer">
-                                                    <span className="pipe"></span>
-                                                    <span className="entertainment">{Category.toUpperCase()}</span>
-                                                </div>
+                    <div className="wrapper">
+                        {
+                            data?.map((element, index) => {
+                                const { Image, Title, Excerpt, Category } = element;
+                                return (
+                                    <div key={index} className="card">
+                                        <img src={Image} alt="article" className="img-fluid" />
+                                        <div className="container">
+                                            <h4>{Title}</h4>
+                                            <p>{Excerpt}</p>
+                                            <div className="footer">
+                                                <span className="pipe"></span>
+                                                <span className="entertainment">{Category.toUpperCase()}</span>
                                             </div>
                                         </div>
-                                    )
-                                })
-                            }
-                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 )
             }
         </div>
