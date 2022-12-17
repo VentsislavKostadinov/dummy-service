@@ -34,26 +34,28 @@ const Articles = () => {
                 loading ? (
                     <LoadingSpinner />
                 ) : (
-                    <div className="wrapper">
+                 
+                        <div className="wrapper">
 
-                        {
-                            data?.map((element, index) => {
-                                return (
-                                    <div key={index} className="card">
-                                        <img src={element.image} alt="article" className="img-fluid" />
-                                        <div className="container">
-                                            <h4>{element.title}</h4>
-                                            <p>{element.text}</p>
-                                            <div className="footer">
-                                                <span className="pipe"></span>
-                                                <span className="entertainment">{element.footer.toUpperCase()}</span>
+                            {
+                                data?.map((element, index) => {
+                                    return (
+                                        <div key={index} className="card">
+                                            <img src={element.image} alt="article" className="img-fluid" />
+                                            <div className="container">
+                                                <h4>{element.title}</h4>
+                                                <p>{element.text}</p>
+                                                <div className="footer">
+                                                    <span className="pipe"></span>
+                                                    <span className="entertainment">{element.footer.toUpperCase()}</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
+                                    )
+                                })
+                            }
+                        </div>
+                   
                 )
             }
 

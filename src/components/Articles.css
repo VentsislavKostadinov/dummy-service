@@ -1,36 +1,35 @@
 .wrapper {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
     background-color: #F6F6F6;
     margin: 10% auto;
-    width: 60%;
+    max-width: 75%;
+    align-items: center;
+    justify-content: center;
 }
 
 .card {
-    margin: 5px;
-    text-align: center;
-    background-color: white;
-    text-align: left;
+    flex: 1 0 0%;
+    width: 100%;
+    background: #ffffff;
+    margin: 10px;
 }
 
 .container {
-    padding: 0.5rem;
-    margin-top: -1rem;
-    font-size: 0.9rem;
+    text-align: left;
+    padding: 1rem;
+    margin-top: -2.5rem;
 }
 
-@media (max-width: 991px) {
-    .wrapper {
-      flex-direction: column;
-    }
+.container > h4 {
+    font-size: 1.5rem;
+}
 
-    .card {
-        width: 70%;
-        text-align: center;
-    }
-  }
+.container > p {
+    font-size: 1.4rem;
+    margin-top: -1.6rem;
+    color: #A0A0A0;
+}
 
 .img-fluid {
     max-width: 100%;
@@ -48,6 +47,23 @@
     height: 0.8em;
     border-left: 2px solid #8AAEBF;
 }
+
 .entertainment {
     margin-left: 0.5rem;
 }
+
+@media (max-width: 991px) {
+    .wrapper {
+        flex-direction: column;
+        max-width: 53%;
+    }
+
+    .card {
+        width: 91%;
+        text-align: center;
+        
+    }
+    .container > h4 {
+        font-size: 1.5rem;
+    }
+} 
