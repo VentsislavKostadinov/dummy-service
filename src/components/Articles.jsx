@@ -13,7 +13,7 @@ const Articles = () => {
 
     const retrieveData = async () => {
 
-        return fetch("https://mocki.io/v1/ba95adcf-c765-4b36-9ff6-5b0a7319688d")
+        return fetch("https://mocki.io/v1/0120ca3b-882f-4dab-b692-de4e5e920d98")
             .then(result => {
                 return result.json();
             })
@@ -34,20 +34,19 @@ const Articles = () => {
                 loading ? (
                     <LoadingSpinner />
                 ) : (
-                 
                         <div className="wrapper">
-
                             {
                                 data?.map((element, index) => {
+                                    const {Image, Title, Excerpt, Category} = element;
                                     return (
                                         <div key={index} className="card">
-                                            <img src={element.image} alt="article" className="img-fluid" />
+                                            <img src={Image} alt="article" className="img-fluid" />
                                             <div className="container">
-                                                <h4>{element.title}</h4>
-                                                <p>{element.text}</p>
+                                                <h4>{Title}</h4>
+                                                <p>{Excerpt}</p>
                                                 <div className="footer">
                                                     <span className="pipe"></span>
-                                                    <span className="entertainment">{element.footer.toUpperCase()}</span>
+                                                    <span className="entertainment">{Category.toUpperCase()}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -55,10 +54,8 @@ const Articles = () => {
                                 })
                             }
                         </div>
-                   
                 )
             }
-
         </div>
     )
 }
